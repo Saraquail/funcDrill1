@@ -1,0 +1,61 @@
+function howManyDays(month, leapYear) {
+    let result;
+  switch (month) {
+    case ('January'):
+    case ('March'):
+    case ('May'):
+    case ('July'):
+    case ('August'):
+    case ('October'):
+    case ('December'): {
+      result = `${month} has 31 days`;
+        break;
+    }
+    case ('April'):
+    case ('June'):
+    case ('September'):
+    case ('November'): {
+        result = `${month} has 30 days`;
+        break;
+    }
+    }
+ if(month === "February" && leapYear === true){
+     result = `${month} has 29 days`;
+ }
+ else if(month === "February" && leapYear === false){
+    result = `${month} has 28 days`;
+}
+    return result;
+
+}
+console.log(howManyDays('February', false));
+
+//fifth function
+
+// 1 beats 3
+// 3 beats 2
+// 2 beats 1
+function rockPaperScissors(num){
+    if(num < 1 || num > 3){
+        throw new Error ('Please enter 1, 2, or 3');
+    }
+    let winner;
+    const randomNo = Math.floor(Math.random() * 3) + 1;
+    if(randomNo === num){
+        winner = "It's a tie!"
+    }
+   
+    if((randomNo === 3 && num === 2) || (randomNo === 2 && num === 1) ||(randomNo === 1 && num === 3)){
+        winner = 'Computer wins!';
+    }
+   
+    if((num === 1 && randomNo === 3) || (num === 2 && randomNo === 1) || (num === 3 && randomNo === 2)){
+        winner = 'You win!';
+    }
+    
+
+    return winner;
+}
+console.log(rockPaperScissors(1));
+console.log(rockPaperScissors(2));
+console.log(rockPaperScissors(3));
